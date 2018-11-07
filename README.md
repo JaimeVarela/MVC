@@ -2,6 +2,14 @@
 
 Este programa consiste en una página web que obtiene datos de una base de datos, ofreciendo datos según las entradas del usuario. En este caso se trata de un conjunto de archivos XML que contienen información sobre películas. El usuario navegará a través de diferentes páginas, y según la opción escogida el servidor le ofrecerá una página con el contenido acorde con la entrada seleccionada.
 
+El programa tiene dos formas:
+
+p2, que consiste en el sistema cliente/servidor, donde un único archivo java se encarga tanto de la parte del servlet y leer los datos de los ficheros como de crear las páginas que leerá el cliente en el navegador.
+
+p3, que consiste en seguir el paradigma Modelo Vista Controlador: un archivo java hace de servlet atendiendo las solicitudes, un conjunto de java beans que leen y almacenan los datos de la base de datos, y un conjunto de jsp que muestran las páginas con la información acorde. Además puede elegirse ejecutar este sistema empleando AJAX, de forma que el navegador actualiza la información ofrecida al usuario de forma asíncrona, recibiendo los datos en forma de JSON.
+
+En ambas formas puede accederse a la lista de errores que el archivo XML Schema haya encontrado o que directamente no esté bien formado el archivo XML.
+
 ![fase01](https://user-images.githubusercontent.com/44776831/48162683-06d46500-e2de-11e8-8e7b-ee87ae82b74e.png)
 ![fase02](https://user-images.githubusercontent.com/44776831/48162697-105dcd00-e2de-11e8-8eec-9f26f87761f5.png)
 ![fase11](https://user-images.githubusercontent.com/44776831/48162713-19e73500-e2de-11e8-8e34-e857cc940ed4.png)
