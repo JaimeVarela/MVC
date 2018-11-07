@@ -1,0 +1,117 @@
+<?xml  version="1.0"  encoding="UTF-8" standalone="no" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Movies">
+
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="Anio">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="1900"/>
+              <xs:maxInclusive value="2017"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Pais" maxOccurs="unbounded" minOccurs="1">
+
+          <xs:complexType>
+            <xs:sequence>
+
+              <xs:element name="Pelicula" maxOccurs="unbounded" minOccurs="1">
+
+                <xs:complexType>
+                  <xs:sequence>
+
+                    <xs:element name="Titulo" type="xs:string"/>
+                    <xs:element name="Generos">
+
+                      <xs:complexType>
+                        <xs:sequence>
+
+                          <xs:element name="Genero" maxOccurs="unbounded" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="Comedia"/>
+                                <xs:enumeration value="Drama"/>
+                                <xs:enumeration value="Aventuras"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+
+                          </xs:element>
+
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+
+                    <xs:element name="Duracion">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="300"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+
+                    <xs:element name="Reparto" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="Nombre" type="xs:string"/>
+                          <xs:element name="Personaje" type="xs:string"/>
+                          <xs:element name="Oscar" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="Principal"/>
+                                <xs:enumeration value="Secundario"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+
+                          <xs:element name="OtraPelicula" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Titulo" type="xs:string" minOccurs="0"/>
+                                <xs:element name="ip" type="xs:string" minOccurs="0"/>
+                                <xs:element name="MML" type="xs:string"/>
+                              </xs:sequence>
+                              <xs:attribute name="anio" type="xs:integer" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+
+                  </xs:sequence>
+
+                  <xs:attribute name="ip" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[a-z][a-z][a-z][0-9][0-9][0-9]"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="langs" type="xs:string"/>
+
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+            <xs:attribute name="pais" type="xs:string" use="required"/>
+            <xs:attribute name="lang" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="[a-z][a-z]"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

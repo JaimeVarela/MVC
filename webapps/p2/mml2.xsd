@@ -1,0 +1,57 @@
+<?xml  version="1.0"  encoding="UTF-8" standalone="no" ?>
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Movies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:short" name="Anio"/>
+        <xs:element name="Pais" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Pelicula" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Titulo"/>
+                    <xs:element name="Generos">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Genero" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:short" name="Duracion"/>
+                    <xs:element name="Reparto" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Nombre"/>
+                          <xs:element type="xs:string" name="Personaje"/>
+                          <xs:element type="xs:string" name="Oscar" minOccurs="0"/>
+                          <xs:element name="OtraPelicula" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="ip" minOccurs="0"/>
+                                <xs:element type="xs:string" name="Titulo" minOccurs="0"/>
+                                <xs:element type="xs:string" name="MML"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:short" name="anio" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="ip" use="optional"/>
+                  <xs:attribute type="xs:string" name="langs" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="pais" use="optional"/>
+            <xs:attribute type="xs:string" name="lang" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

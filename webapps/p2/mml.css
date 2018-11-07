@@ -1,0 +1,31 @@
+body{
+	background-color: blue;
+	font-family: "Times New Roman", Times, serif;
+}
+
+h2{
+	color: yellow;
+}
+
+h1{
+	color: yellow;
+}
+
+l1{
+	color: red;
+}
+
+l2{
+	color: green;
+}
+
+fieldset{
+	background-color: lightblue;
+}
+
+address{
+	outline-style: double;
+	outline-color: green;
+	color: yellow;
+	margin-right: 850px;
+}
